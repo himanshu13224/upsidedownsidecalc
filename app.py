@@ -138,7 +138,7 @@ def build_workbook(symbol, exchange, years, freq, df, include_analysis=True):
         for c, h in enumerate(headers, start=1):
             ws3.cell(row=1, column=c, value=h).font = BOLD
 
-        # expected return lives in J1 (referenced by every row as $J$1)
+        # expected return lives in K1 (referenced by every row as $K$1)
         ws3.cell(row=1, column=10, value="expected return")
         ws3.cell(row=1, column=11, value=f"=AVERAGE({ret_range})").number_format = "0.000000"
 
@@ -146,7 +146,7 @@ def build_workbook(symbol, exchange, years, freq, df, include_analysis=True):
         for i in range(rows_count):
             rr = i + 2
             ws3.cell(row=rr, column=1, value=f"='Returns'!C{i + 3}").number_format = "0.000000"
-            ws3.cell(row=rr, column=2, value="=$J$1").number_format = "0.000000"
+            ws3.cell(row=rr, column=2, value="=$K$1").number_format = "0.000000"
             ws3.cell(row=rr, column=3, value=f"=A{rr}-B{rr}").number_format = "0.000000"
             ws3.cell(row=rr, column=4, value=f"=IF(C{rr}<0,C{rr},0)").number_format = "0.000000"
             ws3.cell(row=rr, column=5, value=f"=IF(C{rr}>0,C{rr},0)").number_format = "0.000000"
